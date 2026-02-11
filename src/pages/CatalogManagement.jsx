@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from "react";
-import { Title, User } from "@/entities/all";
+import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -72,8 +71,8 @@ export default function CatalogManagement() {
     setIsLoading(true);
     try {
       const [titlesData, userData] = await Promise.all([
-        Title.list("-created_date"),
-        User.me()
+        base44.entities.Title.list("-created_date"),
+        base44.auth.me()
       ]);
       setTitles(titlesData);
       setFilteredTitles(titlesData);
@@ -122,7 +121,7 @@ export default function CatalogManagement() {
     setTitles(updatedTitles);
 
     try {
-      await Title.update(titleId, { [field]: value });
+      await base44.entities.Title.update(titleId, { [field]: value });
     } catch (error) {
       console.error("Failed to update title:", error);
       setTitles(originalTitles);
@@ -133,7 +132,7 @@ export default function CatalogManagement() {
     if (!canManageCatalog() || selectedTitles.length === 0) return;
 
     const updates = selectedTitles.map(titleId =>
-      Title.update(titleId, {
+      base44.entities.Title.update(titleId, {
         status: newStatus,
         activation_date: newStatus === 'active' ? new Date().toISOString().split('T')[0] : undefined,
         last_modified: new Date().toISOString()
