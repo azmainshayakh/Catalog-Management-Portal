@@ -419,8 +419,9 @@ export default function CatalogManagement() {
                     No titles found. Try adjusting your filters.
                   </TableCell>
                 </TableRow>
-              ) : currentTitles.map((title) => (
-                <TableRow key={title.id} className="hover:bg-gray-50 border-gray-200">
+              ) : (
+                currentTitles.map((title) => (
+                  <TableRow key={title.id} className="hover:bg-gray-50 border-gray-200">
                   <TableCell style={{ padding: '12px 16px' }}>
                     {canManageCatalog() && (
                       <Checkbox
@@ -567,8 +568,9 @@ export default function CatalogManagement() {
                       </a>
                     )}
                   </TableCell>
-                </TableRow>
-              )))}
+                  </TableRow>
+                ))
+              )}
             </TableBody>
           </Table>
         </div>
