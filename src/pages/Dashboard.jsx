@@ -22,6 +22,7 @@ export default function Dashboard() {
   const [titles, setTitles] = useState([]);
   const [subscriptions, setSubscriptions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [publisherName, setPublisherName] = useState('');
 
   useEffect(() => {
     loadData();
@@ -36,6 +37,16 @@ export default function Dashboard() {
       ]);
       setTitles(titlesData);
       setSubscriptions(subscriptionsData);
+
+      // Get publisher name from first title or user
+      if (titlesData.length > 0 && titlesData[0].publisher) {
+        setPublisherName(titlesData[0].publisher);
+      } else {
+        try {
+          const user = await base44.auth.me();
+          setPublisherName(user.full_name || '');
+        } catch {}
+      }
     } catch (error) {
       console.error("Error loading data:", error);
     }
