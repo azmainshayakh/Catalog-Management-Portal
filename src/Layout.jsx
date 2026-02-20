@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -32,8 +31,13 @@ const navigationItems = [
 ];
 
 const KoboLogo = () => (
-  <div className="text-2xl font-sans cursor-pointer" style={{ color: '#bf0000' }}>
-    <span className="font-bold">Rakuten</span> kobo
+  <div className="cursor-pointer flex flex-col items-start" style={{ color: '#bf0000' }}>
+    <div style={{ fontSize: '28px', fontWeight: '700', lineHeight: '1', letterSpacing: '-0.5px' }}>
+      <span>Rakuten</span><span style={{ fontWeight: '400', marginLeft: '6px' }}>kobo</span>
+    </div>
+    <svg width="90" height="8" viewBox="0 0 90 8" style={{ marginTop: '2px' }}>
+      <polygon points="0,2 75,2 90,8 15,8" fill="#bf0000" />
+    </svg>
   </div>
 );
 
