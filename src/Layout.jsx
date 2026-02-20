@@ -30,16 +30,7 @@ const navigationItems = [
   },
 ];
 
-const KoboLogo = () => (
-  <div className="cursor-pointer flex flex-col items-start" style={{ color: '#bf0000' }}>
-    <div style={{ fontSize: '28px', fontWeight: '400', lineHeight: '1', letterSpacing: '-0.5px' }}>
-      <span>kobo</span>
-    </div>
-    <svg width="45" height="8" viewBox="0 0 45 8" style={{ marginTop: '2px' }}>
-      <polygon points="0,2 35,2 45,8 10,8" fill="#bf0000" />
-    </svg>
-  </div>
-);
+const KoboLogo = () => null;
 
 export default function Layout({ children, currentPageName }) {
   const location = useLocation();
