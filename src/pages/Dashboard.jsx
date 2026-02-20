@@ -53,13 +53,13 @@ export default function Dashboard() {
     <div className="p-6 lg:p-8 space-y-8">
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
         <div>
-          <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-2">
-            Welcome back
-          </h1>
-          <p className="text-slate-600 text-lg">
-            Here's what's happening with your catalog today
-          </p>
-        </div>
+                <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-2">
+                  Welcome{user ? `, ${user.full_name || user.email}` : ' back'}
+                </h1>
+                <p className="text-slate-600 text-lg">
+                  Here's what's happening with your catalog today
+                </p>
+              </div>
         <div className="flex gap-3">
           <Link to={createPageUrl("CatalogManagement")}>
             <Button className="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-xl shadow-lg hover-lift">
