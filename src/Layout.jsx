@@ -141,7 +141,7 @@ export default function Layout({ children, currentPageName }) {
       
       <div className="min-h-screen flex w-full bg-white font-sans">
         <Sidebar className="w-64 bg-white kobo-border" style={{ borderRight: '1px solid #e5e5e5' }}>
-          <div className="p-6 h-20 flex items-center kobo-border" style={{ borderBottom: '1px solid #e5e5e5' }}>
+          <div className="p-6 h-20 flex items-center justify-center kobo-border" style={{ borderBottom: '1px solid #e5e5e5' }}>
             <Link to={createPageUrl("Dashboard")} className="kobo-logo-link">
               <KoboLogo />
             </Link>
