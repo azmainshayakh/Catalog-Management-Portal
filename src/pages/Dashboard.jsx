@@ -38,15 +38,7 @@ export default function Dashboard() {
       setTitles(titlesData);
       setSubscriptions(subscriptionsData);
 
-      // Get publisher name from first title or user
-      if (titlesData.length > 0 && titlesData[0].publisher) {
-        setPublisherName(titlesData[0].publisher);
-      } else {
-        try {
-          const user = await base44.auth.me();
-          setPublisherName(user.full_name || '');
-        } catch {}
-      }
+      setPublisherName('Penguin Random House');
     } catch (error) {
       console.error("Error loading data:", error);
     }
