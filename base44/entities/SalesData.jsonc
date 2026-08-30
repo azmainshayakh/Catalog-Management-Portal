@@ -1,0 +1,70 @@
+{
+  "name": "SalesData",
+  "type": "object",
+  "properties": {
+    "title_id": {
+      "type": "string",
+      "description": "Reference to title"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Sales date"
+    },
+    "net_sales": {
+      "type": "number",
+      "description": "Net sales amount"
+    },
+    "units_sold": {
+      "type": "number",
+      "description": "Number of units sold"
+    },
+    "price_per_unit": {
+      "type": "number",
+      "description": "Price per unit"
+    },
+    "platform": {
+      "type": "string",
+      "enum": [
+        "kobo",
+        "rakuten",
+        "walmart",
+        "fnac",
+        "tolino"
+      ],
+      "description": "Sales platform"
+    },
+    "partner": {
+      "type": "string",
+      "description": "Partner/retailer name"
+    },
+    "geo": {
+      "type": "string",
+      "enum": [
+        "global",
+        "us",
+        "ca",
+        "uk",
+        "au",
+        "fr",
+        "de",
+        "jp"
+      ],
+      "description": "Geographic region"
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD",
+      "description": "Currency code"
+    }
+  },
+  "required": [
+    "title_id",
+    "date",
+    "net_sales",
+    "units_sold",
+    "price_per_unit",
+    "platform",
+    "geo"
+  ]
+}

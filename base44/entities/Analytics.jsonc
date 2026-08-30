@@ -1,0 +1,40 @@
+{
+  "name": "Analytics",
+  "type": "object",
+  "properties": {
+    "title_id": {
+      "type": "string",
+      "description": "Reference to title"
+    },
+    "metric_type": {
+      "type": "string",
+      "enum": [
+        "kobo_plus_adds",
+        "opens",
+        "reads_completed",
+        "abandonment_point",
+        "series_performance"
+      ],
+      "description": "Type of analytics metric"
+    },
+    "metric_value": {
+      "type": "number",
+      "description": "Numeric value of the metric"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the metric"
+    },
+    "additional_data": {
+      "type": "object",
+      "description": "Additional metric-specific data"
+    }
+  },
+  "required": [
+    "title_id",
+    "metric_type",
+    "metric_value",
+    "date"
+  ]
+}

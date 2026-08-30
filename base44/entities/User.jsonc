@@ -1,0 +1,68 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "owner",
+        "admin",
+        "viewer",
+        "super_user"
+      ],
+      "default": "viewer",
+      "description": "User role with specific permissions"
+    },
+    "account_holder_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Account holder IDs user has access to"
+    },
+    "contact_info": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        }
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "manage_catalog": {
+          "type": "boolean",
+          "default": false
+        },
+        "manage_pricing": {
+          "type": "boolean",
+          "default": false
+        },
+        "manage_users": {
+          "type": "boolean",
+          "default": false
+        },
+        "view_reports": {
+          "type": "boolean",
+          "default": true
+        },
+        "export_data": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
+  },
+  "required": [
+    "account_holder_ids",
+    "contact_info",
+    "permissions"
+  ]
+}

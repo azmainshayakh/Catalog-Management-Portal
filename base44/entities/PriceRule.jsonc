@@ -1,0 +1,53 @@
+{
+  "name": "PriceRule",
+  "type": "object",
+  "properties": {
+    "title_id": {
+      "type": "string",
+      "description": "Reference to title"
+    },
+    "region": {
+      "type": "string",
+      "enum": [
+        "global",
+        "us",
+        "ca",
+        "uk",
+        "au",
+        "fr",
+        "de",
+        "jp"
+      ],
+      "description": "Geographic region for pricing"
+    },
+    "price": {
+      "type": "number",
+      "description": "Price for this region"
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency code"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Price effective start date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Price effective end date"
+    },
+    "is_promotional": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this is a promotional price"
+    }
+  },
+  "required": [
+    "title_id",
+    "region",
+    "price",
+    "currency"
+  ]
+}

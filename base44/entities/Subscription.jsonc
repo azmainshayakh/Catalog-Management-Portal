@@ -1,0 +1,48 @@
+{
+  "name": "Subscription",
+  "type": "object",
+  "properties": {
+    "title_id": {
+      "type": "string",
+      "description": "Reference to title"
+    },
+    "plan_type": {
+      "type": "string",
+      "enum": [
+        "basic",
+        "premium",
+        "enterprise"
+      ],
+      "description": "Subscription plan type"
+    },
+    "monthly_fee": {
+      "type": "number",
+      "description": "Monthly subscription fee"
+    },
+    "subscriber_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of subscribers"
+    },
+    "revenue_share": {
+      "type": "number",
+      "description": "Revenue share percentage"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "paused",
+        "discontinued"
+      ],
+      "default": "active",
+      "description": "Subscription status"
+    }
+  },
+  "required": [
+    "title_id",
+    "plan_type",
+    "monthly_fee",
+    "revenue_share"
+  ]
+}
